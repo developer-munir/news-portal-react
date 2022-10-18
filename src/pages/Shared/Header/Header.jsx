@@ -3,10 +3,11 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import Leftsidenav from '../Leftsidenav/Leftsidenav';
 
 const Header = () => {
     return (
-      <div>
+      <div className="mb-4">
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
             <Navbar.Brand href="#home">News Portal</Navbar.Brand>
@@ -35,6 +36,9 @@ const Header = () => {
                   Dank memes
                 </Nav.Link>
               </Nav>
+              <div className="d-lg-none">
+                <Leftsidenav></Leftsidenav>
+              </div>
             </Navbar.Collapse>
           </Container>
         </Navbar>
