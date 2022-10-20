@@ -11,11 +11,11 @@ const Leftsidenav = () => {
   return (
     <div>
       <h3>All Categories</h3>
-      {
-        categories.map(category => <p key={category.id}>
-          <Link>{category?.name}</Link>
-        </p>)
-      }
+      {categories.map((category) => (
+        <p key={category.id}>
+          <Link to={`/category/${category.id}`}>{category?.name}</Link>
+        </p>
+      ))}
     </div>
   );
 };
