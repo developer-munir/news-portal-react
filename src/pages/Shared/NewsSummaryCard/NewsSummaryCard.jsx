@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
-import { FaBookmark, FaShareAlt } from "react-icons/fa";
+import { FaBookmark, FaShareAlt, FaStar, FaEye } from "react-icons/fa";
 
 const NewsSummaryCard = ({ news }) => {
   const {
@@ -28,19 +28,15 @@ const NewsSummaryCard = ({ news }) => {
               style={{ height: "60px", marginRight: "10px" }}
             ></Image>
             <div>
-              <h5 className="text-uppercase">{author?.name}</h5>
+              <h5 className="text-uppercase mb-0 text-danger">{author?.name}</h5>
               <p>
                 <small>{author?.published_date}</small>
               </p>
             </div>
           </div>
           <div>
-            <span className="mr-3">
-              <FaBookmark></FaBookmark>
-            </span>
-            <span>
-              <FaShareAlt></FaShareAlt>
-            </span>
+            <FaBookmark style={{ marginRight: "10px" }}></FaBookmark>
+            <FaShareAlt></FaShareAlt>
           </div>
         </Card.Header>
         <Card.Body>
@@ -56,9 +52,17 @@ const NewsSummaryCard = ({ news }) => {
               details
             )}
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
         </Card.Body>
-        <Card.Footer className="text-muted">2 days ago</Card.Footer>
+        <Card.Footer className="text-muted d-flex justify-content-between">
+          <div>
+            <FaStar className="me-2 text-danger"></FaStar>
+            <span>{rating?.number}</span>
+          </div>
+          <div>
+            <FaEye className="me-2 text-danger"></FaEye>
+            <span>{total_view}</span>
+          </div>
+        </Card.Footer>
       </Card>
     </div>
   );
